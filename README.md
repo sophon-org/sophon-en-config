@@ -6,6 +6,11 @@ This repository contains scripts for setting up and running the Sophon external 
 
 - Docker
 - Docker Compose
+- An Avail DA account
+
+## Getting an Avail DA account
+
+To get an Avail DA account, you follow the instructions from the [Avail DA user guide](https://docs.availproject.org/user-guides/accounts).
 
 ## Installation and running the node from scratch
 
@@ -34,7 +39,7 @@ This section describes how to run the node from scratch, syncing from the genesi
 
 ### Relevant compose file settings
 
-The following settings in the `docker-compose.yml` file are relevant for running the node from snapshots:
+The following settings in the `docker-compose.yml` file are relevant for running the node from scratch:
 
 ```yaml
 EN_SNAPSHOTS_RECOVERY_ENABLED: "false"
