@@ -1,4 +1,4 @@
-name: "mainnet-node"
+name: "testnet-node"
 services:
   prometheus:
     image: prom/prometheus:v2.35.0
@@ -68,7 +68,7 @@ services:
   # The secrets are generated iff the secrets file doesn't already exist.
   generate-secrets:
     image: "matterlabs/external-node:latest2.0"
-    entrypoint: ["/configs/generate_secrets.sh", "/configs/mainnet_consensus_secrets.yaml"]
+    entrypoint: ["/configs/generate_secrets.sh", "/configs/testnet_consensus_secrets.yaml"]
     volumes:
       - ./configs:/configs
   external-node:
@@ -104,10 +104,10 @@ services:
       EN_API_NAMESPACES: "eth,net,web3,zks,pubsub,en,debug"
       EN_HEALTHCHECK_PORT: 3081
       EN_PROMETHEUS_PORT: 3322
-      EN_ETH_CLIENT_URL: https://ethereum-rpc.publicnode.com
-      EN_MAIN_NODE_URL: https://rpc.sophon.xyz
-      EN_L1_CHAIN_ID: 1
-      EN_L2_CHAIN_ID: 50104
+      EN_ETH_CLIENT_URL: https://ethereum-sepolia-rpc.publicnode.com
+      EN_MAIN_NODE_URL: https://rpc.testnet.sophon.xyz
+      EN_L1_CHAIN_ID: 11155111
+      EN_L2_CHAIN_ID: 531050104
       EN_PRUNING_ENABLED: false
       EN_L1_BATCH_COMMIT_DATA_GENERATOR_MODE: "Validium"
       EN_EVM_EMULATOR_HASH: "0x0000000000000000000000000000000000000000000000000000000000000000"
@@ -123,12 +123,12 @@ services:
       EN_STATE_CACHE_PATH: "./db/ext-node/state_keeper"
       EN_MERKLE_TREE_PATH: "./db/ext-node/lightweight"
       EN_SNAPSHOTS_RECOVERY_ENABLED: "true"
-      EN_SNAPSHOTS_OBJECT_STORE_BUCKET_BASE_URL: "raas-sophon-mainnet-external-node-snapshots"
+      EN_SNAPSHOTS_OBJECT_STORE_BUCKET_BASE_URL: "sophon-testnet-external-node-snapshots"
       EN_SNAPSHOTS_OBJECT_STORE_MODE: "GCSAnonymousReadOnly"
       RUST_LOG: "warn,zksync=info,zksync_core::metadata_calculator=debug,zksync_state=debug,zksync_utils=debug,zksync_web3_decl::client=error"
 
-      EN_CONSENSUS_CONFIG_PATH: "/configs/mainnet_consensus_config.yaml"
-      EN_CONSENSUS_SECRETS_PATH: "/configs/mainnet_consensus_secrets.yaml"
+      EN_CONSENSUS_CONFIG_PATH: "/configs/testnet_consensus_config.yaml"
+      EN_CONSENSUS_SECRETS_PATH: "/configs/testnet_consensus_secrets.yaml"
 
 volumes:
   prometheus-data: {}
