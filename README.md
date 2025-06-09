@@ -12,6 +12,12 @@ This repository contains scripts for setting up and running the Sophon external 
 
 To get an Avail DA account, you follow the instructions from the [Avail DA user guide](https://docs.availproject.org/user-guides/accounts).
 
+*Note: The Avail DA account is required to run the node, but you don't need to have any funds in it if you run an EN.*
+
+## Mainnet vs Testnet
+
+The node config for mainnet is available on this repo's `main` branch, and the node config for testnet is available on this repo's `testnet` branch.
+
 ## Installation and running the node from scratch
 
 This section describes how to install and run the node from scratch, syncing from publicly available snapshots form the official registry.
@@ -19,8 +25,8 @@ This section describes how to install and run the node from scratch, syncing fro
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/sophon-labs/sophon-external-node.git
-cd sophon-external-node
+git clone https://github.com/sophon-org/sophon-en-config.git
+cd sophon-en-config
 ```
 
 2. Run the compose file:
