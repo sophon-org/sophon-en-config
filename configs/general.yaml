@@ -1,0 +1,8 @@
+da_client:
+  avail:
+    bridge_api_url: https://bridge-api.avail.so
+    timeout_ms: 20000
+    full_client:
+      api_node_url: wss://mainnet.avail-rpc.com/
+      app_id: 102
+      finality_state: "finalized"
